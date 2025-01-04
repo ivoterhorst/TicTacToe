@@ -29,6 +29,10 @@ bool Board::makeMove(int row, int col, char player)
 
 bool Board::checkWin(char player) const
 {
+    if (player != 'X' && player != 'O')
+    {
+        return false;
+    }
     for (int i = 0; i < 3; ++i)
     {
         if (checkRow(i, player) || checkCol(i, player))
