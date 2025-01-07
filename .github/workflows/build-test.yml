@@ -31,7 +31,7 @@ jobs:
         with:
           path: "~/.cache/bazel"
           key: bazel
-      - run: bazel test //tests:test-board
+      - run: bazel test --test_output=all //tests:test-board
 
   # deploy:
   #   needs: test
