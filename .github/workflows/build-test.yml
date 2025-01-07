@@ -16,6 +16,7 @@ jobs:
           path: "~/.cache/bazel"
           key: bazel
       - run: bazel build //lib:all
+      - run: bazel build //tests:all
       
   # test: 
   #   needs: build
