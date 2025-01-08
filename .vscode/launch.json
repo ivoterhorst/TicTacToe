@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/bazel-bin/bin/tictactoe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": true,
+            "MIMode": "lldb",
+            "preLaunchTask": "bazel build",
+            "sourceFileMap": {
+                // "/home/newton/.cache/bazel/_bazel_newton/7a12d285425fc99da0ce87e2a08f2f36/execroot/__main__/": "${workspaceFolder}"
+                "/private/var/tmp/_bazel_ivo/f2c6f72eca2ab6d40487b65e6d6839b2/sandbox/darwin-sandbox/99/execroot/_main/": "${workspaceFolder}"
+            }
+        }
+    ]
+}
