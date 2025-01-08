@@ -6,5 +6,6 @@ int main(int argc, char **argv)
     board.makeMove(0, 0, 'X');
     board.makeMove(1, 1, 'O');
     board.makeMove(2, 2, 'X');
+    board.makeMove(0, 2, 'O');
     board.display();
 }
