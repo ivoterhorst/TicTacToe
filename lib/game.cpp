@@ -3,6 +3,7 @@
 #include "utils.hpp"
 
 #include <iostream>
+#include <memory>
 
 Game::Game(std::shared_ptr<Board> board,
            std::shared_ptr<Player> player1,

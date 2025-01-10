@@ -3,6 +3,8 @@
 #include "lib/player.hpp"
 #include "lib/types.hpp"
 
+#include <memory>
+
 int main(int argc, char **argv)
 {
     std::shared_ptr<Board> board = std::make_shared<Board>();

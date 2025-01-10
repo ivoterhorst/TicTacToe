@@ -4,6 +4,8 @@
 #include "board.hpp"
 #include "player.hpp"
 
+#include <memory>
+
 class Game
 {
 public:
