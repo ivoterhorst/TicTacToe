@@ -1,9 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include "board.hpp"
+#include "types.hpp"
+#include "utils.hpp"
 
-Board::Board() : board(3, std::vector<char>(3, ' ')) {}
+Board::Board() : board(3, std::vector<PlayerId>(3, PlayerId::None)) {}
 
 void Board::display() const
 {
@@ -11,28 +14,24 @@ void Board::display() const
     {
         for (const auto &cell : row)
         {
-            std::cout << cell << " ";
+            std::cout << playerIdToString(cell) << " ";
         }
         std::cout << std::endl;
     }
 }
 
-bool Board::makeMove(int row, int col, char player)
+bool Board::makeMove(Move move, PlayerId player)
 {
-    if (row < 0 || row >= 3 || col < 0 || col >= 3 || board[row][col] != ' ')
+    if (move.row < 0 || move.row >= 3 || move.col < 0 || move.col >= 3 || board[move.row][move.col] != PlayerId::None)
     {
         return false;
     }
-    board[row][col] = player;
+    board[move.row][move.col] = player;
     return true;
 }
 
-bool Board::checkWin(char player) const
+bool Board::checkWin(PlayerId player) const
 {
-    if (player != 'X' && player != 'O')
-    {
-        return false;
-    }
     for (int i = 0; i < 3; ++i)
     {
         if (checkRow(i, player) || checkCol(i, player))
@@ -49,7 +48,7 @@ bool Board::isFull() const
     {
         for (const auto &cell : row)
         {
-            if (cell == ' ')
+            if (cell == PlayerId::None)
             {
                 return false;
             }
@@ -58,7 +57,7 @@ bool Board::isFull() const
     return true;
 }
 
-bool Board::checkRow(int row, char player) const
+bool Board::checkRow(int row, PlayerId player) const
 {
     for (int col = 0; col < 3; ++col)
     {
@@ -70,7 +69,7 @@ bool Board::checkRow(int row, char player) const
     return true;
 }
 
-bool Board::checkCol(int col, char player) const
+bool Board::checkCol(int col, PlayerId player) const
 {
     for (int row = 0; row < 3; ++row)
     {
@@ -82,7 +81,7 @@ bool Board::checkCol(int col, char player) const
     return true;
 }
 
-bool Board::checkDiagonals(char player) const
+bool Board::checkDiagonals(PlayerId player) const
 {
     bool diag1 = true, diag2 = true;
     for (int i = 0; i < 3; ++i)

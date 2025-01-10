@@ -1,29 +1,33 @@
 #include "game.hpp"
+#include "types.hpp"
+#include "utils.hpp"
 
 #include <iostream>
 
-Game::Game() : board() {}
+Game::Game(std::shared_ptr<Board> board,
+           std::shared_ptr<Player> player1,
+           std::shared_ptr<Player> player2) : board(board),
+                                              player1(player1),
+                                              player2(player2) {}
 
 void Game::play()
 {
-    board.display();
-    char player = 'X';
-    while (!board.isFull())
+    board->display();
+    std::shared_ptr<Player> currentPlayer = player1; // start with player 1
+    while (!board->isFull())
     {
-        int row, col;
+        Move move;
         do
         {
-            std::cout << "Player " << player << ": Enter row and column: ";
-            std::cin >> row >> col;
-
-        } while (!board.makeMove(row, col, player));
-        board.display();
-        if (board.checkWin(player))
+            move = currentPlayer->getMove();
+        } while (!board->makeMove(move, currentPlayer->getId()));
+        board->display();
+        if (board->checkWin(currentPlayer->getId()))
         {
-            std::cout << player << " wins!" << std::endl;
+            std::cout << playerIdToString(currentPlayer->getId()) << " wins!" << std::endl;
             return;
         }
-        player = (player == 'X') ? 'O' : 'X';
+        currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
     std::cout << "It's a tie!" << std::endl;
 }

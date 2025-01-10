@@ -2,22 +2,25 @@
 #define BOARD_HPP
 
 #include <vector>
+#include <string>
+
+#include "types.hpp"
 
 class Board
 {
 public:
     Board();
-    bool makeMove(int row, int col, char player);
-    bool checkWin(char player) const;
+    bool makeMove(Move move, PlayerId player);
+    bool checkWin(PlayerId player) const;
     bool isFull() const;
     void display() const;
 
 private:
-    std::vector<std::vector<char>> board;
+    std::vector<std::vector<PlayerId>> board;
 
-    bool checkRow(int row, char player) const;
-    bool checkCol(int col, char player) const;
-    bool checkDiagonals(char player) const;
+    bool checkRow(int row, PlayerId player) const;
+    bool checkCol(int col, PlayerId player) const;
+    bool checkDiagonals(PlayerId player) const;
 };
 
 #endif // BOARD_HPP
