@@ -1,12 +1,9 @@
-#include "player.hpp"
+#include "humanplayer.hpp"
 #include "lib/types.hpp"
 
 #include <iostream>
 
-// Player::Player(PlayerId id, Board *board) : id(id), board(board) {}
-Player::Player(PlayerId id) : id(id) {}
-
-Move Player::getMove() const
+Move HumanPlayer::getMove() const
 {
     Move move;
     std::cout << "Player " << (id == PlayerId::X ? 'X' : 'O') << ", enter your move (row col): ";

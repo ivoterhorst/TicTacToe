@@ -1,20 +1,14 @@
-#ifndef PLAYER_HPP
-#define PLAYER_HPP
+#pragma once
 
-// #include "board.hpp"
 #include "types.hpp"
 
 class Player
 {
 public:
-    // Player(PlayerId id, Board *board);
-    Player(PlayerId id);
-    Move getMove() const;
+    Player(PlayerId id) { this->id = id; };
+    virtual Move getMove() const = 0;
     PlayerId getId() const { return id; }
 
-private:
+protected:
     PlayerId id;
-    // Board *board; // to be used later, when implementing strategies
 };
-
-#endif // PLAYER_HPP

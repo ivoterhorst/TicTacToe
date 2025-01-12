@@ -16,8 +16,9 @@ cc_library(
 
 cc_library(
     name = "player-lib",
-    srcs = ["player.cpp"],
+    srcs = ["humanplayer.cpp"],
     hdrs = [
+        "humanplayer.hpp",
         "player.hpp",
         "types.hpp",
     ],
