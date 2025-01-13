@@ -4,7 +4,6 @@
 
 #include "board.hpp"
 #include "types.hpp"
-#include "utils.hpp"
 
 Board::Board() : board(3, std::vector<PlayerId>(3, PlayerId::None)) {}
 
@@ -14,7 +13,7 @@ void Board::display() const
     {
         for (const auto &cell : row)
         {
-            std::cout << playerIdToString(cell) << " ";
+            std::cout << cell << " ";
         }
         std::cout << std::endl;
     }

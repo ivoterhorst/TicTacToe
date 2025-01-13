@@ -9,9 +9,6 @@ cc_library(
         "//bin:__pkg__",
         "//tests:__pkg__",
     ],
-    deps = [
-        ":utils-lib",
-    ],
 )
 
 cc_library(
@@ -40,17 +37,4 @@ cc_library(
         ":board-lib",
         ":player-lib",
     ],
-)
-
-cc_library(
-    name = "utils-lib",
-    srcs = ["utils.cpp"],
-    hdrs = [
-        "types.hpp",
-        "utils.hpp",
-    ],
-    # visibility = [
-    #     "//bin:__pkg__",
-    #     "//tests:__pkg__",
-    # ],
 )

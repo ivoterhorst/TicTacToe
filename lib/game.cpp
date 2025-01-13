@@ -1,6 +1,6 @@
 #include "game.hpp"
 #include "types.hpp"
-#include "utils.hpp"
+// #include "utils.hpp"
 
 #include <iostream>
 #include <memory>
@@ -25,7 +25,7 @@ void Game::play()
         board->display();
         if (board->checkWin(currentPlayer->getId()))
         {
-            std::cout << playerIdToString(currentPlayer->getId()) << " wins!" << std::endl;
+            std::cout << currentPlayer->getId() << " wins!" << std::endl;
             return;
         }
         currentPlayer = (currentPlayer == player1) ? player2 : player1;

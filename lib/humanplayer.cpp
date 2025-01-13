@@ -6,7 +6,7 @@
 Move HumanPlayer::getMove() const
 {
     Move move;
-    std::cout << "Player " << (id == PlayerId::X ? 'X' : 'O') << ", enter your move (row col): ";
+    std::cout << "Player " << id << ", enter your move (row col): ";
     std::cin >> move.row >> move.col;
     return move;
 }
