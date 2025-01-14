@@ -1,6 +1,5 @@
 #include "game.hpp"
 #include "types.hpp"
-// #include "utils.hpp"
 
 #include <iostream>
 #include <memory>
@@ -14,7 +13,20 @@ Game::Game(std::shared_ptr<Board> board,
 void Game::play()
 {
     board->display();
-    std::shared_ptr<Player> currentPlayer = player1; // start with player 1
+
+    // pick random player to start
+    std::shared_ptr<Player> currentPlayer;
+    std::srand(std::time(nullptr));                            // seed random number generator with current time
+    int zeroOrOne = (1 + std::rand()) / ((RAND_MAX + 1u) / 2); // Note: 1 + rand() % sides is biased
+    if (zeroOrOne == 0)
+    {
+        currentPlayer = player1;
+    }
+    else
+    {
+        currentPlayer = player2;
+    }
+
     while (!board->isFull())
     {
         Move move;

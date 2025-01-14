@@ -8,7 +8,4 @@ class HumanPlayer : public Player
 public:
     using Player::Player; // inherit constructor
     Move getMove() const override;
-
-protected:
-    PlayerId id;
 };
