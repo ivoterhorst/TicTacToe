@@ -24,10 +24,19 @@ void Game::play()
     while (!board->isFull())
     {
         Move move;
+        int numberOfTries = 0;
+        bool successfulMove = false;
         do
         {
             move = currentPlayer->getMove();
-        } while (!board->makeMove(move, currentPlayer->getId()));
+            numberOfTries++;
+            successfulMove = board->makeMove(move, currentPlayer->getId());
+        } while (!successfulMove && numberOfTries < 3);
+        if (!successfulMove && numberOfTries == 3)
+        {
+            std::cout << "Player " << currentPlayer->getId() << " has made 3 invalid moves in a row. Game over." << std::endl;
+            return;
+        }
         board->display();
         if (board->checkWin(currentPlayer->getId()))
         {
