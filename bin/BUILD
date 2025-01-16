@@ -5,5 +5,6 @@ cc_binary(
         "//lib:board-lib",
         "//lib:game-lib",
         "//lib:player-lib",
+        "//lib:randomplayerchooser-lib",
     ],
 )

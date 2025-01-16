@@ -17,6 +17,7 @@ cc_test(
         ":player-mock",
         "//lib:board-lib",
         "//lib:game-lib",
+        "//lib:randomplayerchooser-lib",
         "@googletest//:gtest",
         "@googletest//:gtest_main",
     ],

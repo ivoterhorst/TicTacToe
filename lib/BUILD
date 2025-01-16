@@ -26,6 +26,20 @@ cc_library(
 )
 
 cc_library(
+    name = "randomplayerchooser-lib",
+    srcs = ["randomplayerchooser.cpp"],
+    hdrs = [
+        "randomplayerchooser.hpp",
+        "startingplayerchooser.hpp",
+        "types.hpp",
+    ],
+    visibility = [
+        "//bin:__pkg__",
+        "//tests:__pkg__",
+    ],
+)
+
+cc_library(
     name = "game-lib",
     srcs = ["game.cpp"],
     hdrs = ["game.hpp"],
@@ -36,5 +50,6 @@ cc_library(
     deps = [
         ":board-lib",
         ":player-lib",
+        ":randomplayerchooser-lib",
     ],
 )
