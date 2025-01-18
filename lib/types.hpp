@@ -10,7 +10,7 @@ struct Move
 class PlayerId
 {
 public:
-    enum Value : uint8_t
+    enum Value
     {
         X,
         O,
