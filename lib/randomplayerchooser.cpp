@@ -2,6 +2,8 @@
 #include "lib/randomplayerchooser.hpp"
 #include "lib/types.hpp"
 
+#include <ctime>
+
 PlayerId RandomStartingPlayerChooser::chooseStartingPlayer()
 {
     std::srand(std::time(nullptr));                            // seed random number generator with current time

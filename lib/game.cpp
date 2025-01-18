@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <memory>
-#include <ctime>
 
 Game::Game(std::shared_ptr<Board> board,
            std::shared_ptr<Player> player1,
