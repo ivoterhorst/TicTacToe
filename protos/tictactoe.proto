@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package tictactoe;
+
+// The TicTacToe service definition.
+service TicTacToe {
+  // Player enters the game
+  rpc EnterGame (EnterRequest) returns (EnterReply) {}
+}
+
+// The request message containing the player's name.
+message EnterRequest {
+  string name = 1;
+}
+
+// The response message containing the name of the other player
+message EnterReply {
+  string message = 1;
+}

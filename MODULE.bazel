@@ -12,3 +12,7 @@ This module manages external dependencies for the TicTacToe project using Bzlmod
 # Choose the most recent version available at
 # https://registry.bazel.build/modules/googletest
 bazel_dep(name = "googletest", version = "1.15.2")
+
+# Dependencies for grpc
+bazel_dep(name = "grpc", version = "1.69.0")
+bazel_dep(name = "protobuf", version = "29.3")
