@@ -53,3 +53,19 @@ cc_library(
         ":randomplayerchooser-lib",
     ],
 )
+
+cc_library(
+    name = "tictactoe-client-lib",
+    srcs = ["tictactoe_client.cpp"],
+    hdrs = [
+        "tictactoe_client.hpp",
+    ],
+    visibility = [
+        "//bin:__pkg__",
+        "//tests:__pkg__",
+    ],
+    deps = [
+        "//protogen:tictactoe_grpc",
+        "@grpc//:grpc++",
+    ],
+)

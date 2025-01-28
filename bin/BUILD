@@ -10,10 +10,18 @@ cc_binary(
 )
 
 cc_binary(
-    name = "tictactoe_server",
+    name = "tictactoe-server",
     srcs = ["tictactoeserver.cpp"],
     deps = [
         "//protogen:tictactoe_grpc",
         "@grpc//:grpc++",
+    ],
+)
+
+cc_binary(
+    name = "tictactoe-client",
+    srcs = ["tictactoe_client_main.cpp"],
+    deps = [
+        "//lib:tictactoe-client-lib",
     ],
 )
