@@ -5,8 +5,8 @@
 
 #include <grpc++/grpc++.h>
 
-#include "protogen/tictactoe.pb.h"
-#include "protogen/tictactoe.grpc.pb.h"
+#include "protos/tictactoe.pb.h"
+#include "protos/tictactoe.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;

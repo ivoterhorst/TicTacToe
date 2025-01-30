@@ -13,7 +13,7 @@ cc_binary(
     name = "tictactoe-server",
     srcs = ["tictactoeserver.cpp"],
     deps = [
-        "//protogen:tictactoe_grpc",
+        "//protos:tictactoe_cc_grpc",
         "@grpc//:grpc++",
     ],
 )

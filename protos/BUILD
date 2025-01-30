@@ -1,14 +1,19 @@
-# Proto library to group a proto file with its dependencies
+load("//bazel:cc_grpc_library.bzl", "cc_grpc_library")
+
 proto_library(
     name = "tictactoe_proto",
     srcs = ["tictactoe.proto"],
-    visibility = ["//visibility:public"],
-    deps = ["@protobuf//:any_proto"],
 )
 
 cc_proto_library(
     name = "tictactoe_cc_proto",
-    visibility = ["//visibility:public"],
     deps = [":tictactoe_proto"],
 )
 
+cc_grpc_library(
+    name = "tictactoe_cc_grpc",
+    srcs = [":tictactoe_proto"],
+    grpc_only = True,
+    visibility = ["//visibility:public"],
+    deps = [":tictactoe_cc_proto"],
+)

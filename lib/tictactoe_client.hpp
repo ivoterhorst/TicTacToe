@@ -4,8 +4,8 @@
 #include <string>
 #include <grpc++/grpc++.h>
 
-#include "protogen/tictactoe.pb.h"
-#include "protogen/tictactoe.grpc.pb.h"
+#include "protos/tictactoe.pb.h"
+#include "protos/tictactoe.grpc.pb.h"
 
 using grpc::Channel;
 using grpc::ClientContext;

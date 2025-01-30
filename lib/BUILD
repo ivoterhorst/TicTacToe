@@ -65,7 +65,7 @@ cc_library(
         "//tests:__pkg__",
     ],
     deps = [
-        "//protogen:tictactoe_grpc",
+        "//protos:tictactoe_cc_grpc",
         "@grpc//:grpc++",
     ],
 )
