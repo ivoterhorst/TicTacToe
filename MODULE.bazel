@@ -16,3 +16,4 @@ bazel_dep(name = "googletest", version = "1.15.2")
 # Dependencies for grpc
 bazel_dep(name = "grpc", version = "1.69.0")
 bazel_dep(name = "protobuf", version = "29.3")
+bazel_dep(name = "rules_proto", version = "7.1.0")
