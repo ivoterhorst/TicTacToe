@@ -12,18 +12,18 @@ using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using tictactoe::EnterReply;
-using tictactoe::EnterRequest;
+using tictactoe::Empty;
+using tictactoe::StartReply;
 using tictactoe::TicTacToe;
 
 // Logic and data behind the server's behavior.
 class TicTacToeServiceImpl final : public TicTacToe::Service
 {
-    Status EnterGame(ServerContext *context, const EnterRequest *request,
-                     EnterReply *reply) override
+    Status StartGame(ServerContext *context, const Empty *request,
+                     StartReply *reply) override
     {
         std::string prefix("Hello ");
-        reply->set_message(prefix + request->name());
+        reply->set_first_player(tictactoe::Player::X);
         // std::cout << "Received message from client: " << request->name() << std::endl;
         return Status::OK;
     }

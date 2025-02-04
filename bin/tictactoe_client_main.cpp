@@ -13,9 +13,9 @@ int main(int argc, char **argv)
   // InsecureCredentials()).
   TicTacToeClient client(
       grpc::CreateChannel("localhost:50052", grpc::InsecureChannelCredentials()));
-  std::string user("Ivo");
-  std::cout << "Sending: " << user << std::endl;
-  std::string reply = client.EnterGame(user);
+  // std::string user("Ivo");
+  // std::cout << "Sending: " << user << std::endl;
+  std::string reply = client.StartGame();
   std::cout << "Reply received: " << reply << std::endl;
 
   return 0;

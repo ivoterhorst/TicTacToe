@@ -2,30 +2,38 @@
 
 #include "tictactoe_client.hpp"
 
+using tictactoe::Empty;
+using tictactoe::StartReply;
+
 // Constructor with "initialization list"
 TicTacToeClient::TicTacToeClient(std::shared_ptr<Channel> channel)
     : stub_(TicTacToe::NewStub(channel)) {}
 
-std::string TicTacToeClient::EnterGame(const std::string &user)
+std::string TicTacToeClient::StartGame()
 {
   // Data we are sending to the server.
-  EnterRequest request;
-  request.set_name(user);
+  Empty request;
+  // request.set_name(user);
 
   // Container for the data we expect from the server.
-  EnterReply reply;
+  StartReply reply;
 
   // Context for the client. It could be used to convey extra information to
   // the server and/or tweak certain RPC behaviors.
   ClientContext context;
 
   // The actual RPC.
-  Status status = stub_->EnterGame(&context, request, &reply);
+  Status status = stub_->StartGame(&context, request, &reply);
 
   // Act upon its status.
   if (status.ok())
   {
-    return reply.message();
+    if (reply.first_player() == tictactoe::Player::X)
+    {
+      return "Player X starts";
+    }
+    else
+      return "Player O starts";
   }
   else
   {

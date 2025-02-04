@@ -5,15 +5,24 @@ package tictactoe;
 // The TicTacToe service definition.
 service TicTacToe {
   // Player enters the game
-  rpc EnterGame (EnterRequest) returns (EnterReply) {}
+  rpc StartGame (Empty) returns (StartReply) {}
+}
+
+enum Player {
+  X = 0;
+  O = 1;
 }
 
 // The request message containing the player's name.
-message EnterRequest {
-  string name = 1;
+// message EnterRequest {
+//   string name = 1;
+// }
+
+// The response message when starting a game, containing the first player.
+message StartReply {
+  Player first_player = 1;
 }
 
-// The response message containing the name of the other player
-message EnterReply {
-  string message = 1;
+message Empty{
+  
 }
