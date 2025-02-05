@@ -13,6 +13,8 @@ cc_binary(
     name = "tictactoe-server",
     srcs = ["tictactoeserver.cpp"],
     deps = [
+        "//lib:board-lib",
+        "//lib:randomplayerchooser-lib",
         "//protos:tictactoe_cc_grpc",
         "@grpc//:grpc++",
     ],

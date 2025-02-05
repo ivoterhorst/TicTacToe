@@ -1,11 +1,12 @@
 syntax = "proto3";
 
-package tictactoe;
+package tictactoe_if;
 
 // The TicTacToe service definition.
 service TicTacToe {
   // Player enters the game
   rpc StartGame (Empty) returns (StartReply) {}
+  rpc MakeMove (Move) returns (MoveReply) {}
 }
 
 enum Player {
@@ -13,15 +14,23 @@ enum Player {
   O = 1;
 }
 
-// The request message containing the player's name.
-// message EnterRequest {
-//   string name = 1;
-// }
-
 // The response message when starting a game, containing the first player.
 message StartReply {
   Player first_player = 1;
 }
+
+message Move {
+  Player player = 1;
+  int32 row = 2;
+  int32 col = 3;
+}
+
+message MoveReply {
+  bool valid = 1;
+  optional bool game_over = 2;
+  optional Player winner = 3;
+}
+
 
 message Empty{
   

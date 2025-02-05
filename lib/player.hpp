@@ -2,6 +2,9 @@
 
 #include "types.hpp"
 
+using tictactoe::Move;
+using tictactoe::PlayerId;
+
 class Player
 {
 public:

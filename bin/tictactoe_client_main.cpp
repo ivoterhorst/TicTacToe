@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "lib/tictactoe_client.hpp"
+#include "lib/types.hpp"
 
 int main(int argc, char **argv)
 {
@@ -15,8 +16,18 @@ int main(int argc, char **argv)
       grpc::CreateChannel("localhost:50052", grpc::InsecureChannelCredentials()));
   // std::string user("Ivo");
   // std::cout << "Sending: " << user << std::endl;
-  std::string reply = client.StartGame();
-  std::cout << "Reply received: " << reply << std::endl;
+  tictactoe::PlayerId startingPlayer = client.StartGame();
+  std::cout << "Player who starts: " << startingPlayer << std::endl;
+
+  bool moveMade = client.MakeMove({1, 1});
+  if (moveMade)
+  {
+    std::cout << "Move made" << std::endl;
+  }
+  else
+  {
+    std::cout << "Move not made" << std::endl;
+  }
 
   return 0;
 }

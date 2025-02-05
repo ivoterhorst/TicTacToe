@@ -3,6 +3,8 @@
 #include "types.hpp"
 #include "player.hpp"
 
+using tictactoe::Move;
+
 class HumanPlayer : public Player
 {
 public:

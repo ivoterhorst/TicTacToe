@@ -1,10 +1,12 @@
-#ifndef BOARD_HPP
-#define BOARD_HPP
+#pragma once
 
 #include <vector>
 #include <string>
 
 #include "types.hpp"
+
+using tictactoe::Move;
+using tictactoe::PlayerId;
 
 class Board
 {
@@ -22,5 +24,3 @@ private:
     bool checkCol(int col, PlayerId player) const;
     bool checkDiagonals(PlayerId player) const;
 };
-
-#endif // BOARD_HPP

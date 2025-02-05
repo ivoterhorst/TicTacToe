@@ -59,6 +59,7 @@ cc_library(
     srcs = ["tictactoe_client.cpp"],
     hdrs = [
         "tictactoe_client.hpp",
+        "types.hpp",
     ],
     visibility = [
         "//bin:__pkg__",
