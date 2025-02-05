@@ -2,6 +2,8 @@
 
 #include "lib/types.hpp"
 
+using tictactoe::PlayerId;
+
 class StartingPlayerChooser
 {
 public:
